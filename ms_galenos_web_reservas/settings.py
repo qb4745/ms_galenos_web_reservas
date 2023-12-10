@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-7uirlp8)sdktm6yfcgfvn28b+v_&$f2c+uoiczwow19935hsge
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["3.234.53.156", "127.0.0.1"]
 
 
 # Application definition
@@ -74,11 +74,25 @@ WSGI_APPLICATION = "ms_galenos_web_reservas.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "api_rest_django",
+        "USER": "mysql",
+        "PASSWORD": "password",
+        "HOST": "mysql_db",
+        "PORT": "3306",
+        "OPTIONS": {
+            "sql_mode": "traditional",
+        },
+    },
 }
 
 

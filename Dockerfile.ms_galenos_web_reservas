@@ -1,0 +1,8 @@
+FROM python:3.10-alpine
+RUN apk add --no-cache bash
+RUN apk add gcc musl-dev mariadb-connector-c-dev
+WORKDIR /ms_galenos_web_reservas
+COPY ms_galenos_web_reservas/requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 8000
+COPY ms_galenos_web_reservas ms_galenos_web_reservas
